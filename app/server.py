@@ -1,5 +1,5 @@
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.secret_key = "3n13m3@n13myn13m0-sudoku-duel"
@@ -24,9 +24,9 @@ def import_css(file_name, override_directory="css"):
 app.jinja_env.globals.update(import_js=import_js, import_css=import_css)
 
 
-@app.route("/ping", methods=["GET"])
-def ping():
-    return "okay", 200
+@app.route("/", methods=["GET"])
+def home():
+    return render_template("app.html", js_init={})
 
 
 def load_app() -> Flask:

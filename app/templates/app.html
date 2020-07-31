@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <base href="/">
+
+{% endblock %}
+
+{% block content %}
+<body class="bg-white">
+    <div ng-app="App" ng-controller="Controller as ctrl" ng-cloak>
+
+        {% raw %}
+
+            <ng-view></ng-view>
+
+        {% endraw %}
+
+    </div>
+</body>
+{% endblock %}
+
+{% block footer %}
+    <script>
+        js_init = {{ js_init | safe }};
+    </script>
+
+    {{ import_js("app", override_directory="js") | safe }}
+    {{ import_js("board", override_directory="js/components/board") | safe }}
+    {{ import_js("cell", override_directory="js/components/cell") | safe }}
+{% endblock %}
