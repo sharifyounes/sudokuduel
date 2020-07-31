@@ -10,7 +10,6 @@ python setup.py develop
 
 Add an alias
 
-Hey this is Justin
 
 ```angular2
 alias sd="cd ~/Projects/sudokuduel; source .python3/bin/activate"
