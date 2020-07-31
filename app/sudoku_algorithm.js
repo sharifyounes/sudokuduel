@@ -21,8 +21,15 @@ function multiprint(x){
 	}
 }
 
-function possibleValues(row){
-
+function getPossibleValues(puzzle){
+	for(let i = 0; i < puzzle.length; i++){
+		for(let j = 0; j < puzzle[i].length; j++){
+			if(puzzle[i][j] == null){
+				puzzle[i][j] = [1,2,3,4,5,6,7,8,9];
+			}
+		}
+	}
+	return puzzle;
 }
 
 let puzzle = [
@@ -37,8 +44,7 @@ let puzzle = [
 	[null, null, null, 3, 2, null, 5, null, 1],
 ]
 
-multiprint(puzzle);
-
+print(getPossibleValues(puzzle));
 
 
 
