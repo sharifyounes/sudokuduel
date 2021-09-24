@@ -3,6 +3,8 @@
 {% block header %}
     <base href="/">
 
+    {{ import_css("board") | safe }}
+
 {% endblock %}
 
 {% block content %}
@@ -10,7 +12,9 @@
     <div ng-app="App" ng-controller="Controller as ctrl" ng-cloak>
 
         {% raw %}
-
+            <div class="logo-holder">
+                <img class="logo" src="/static/images/logo.png" alt="SudokuDuel" />
+            </div>
             <ng-view></ng-view>
 
         {% endraw %}
@@ -25,6 +29,8 @@
     </script>
 
     {{ import_js("app", override_directory="js") | safe }}
+    {{ import_js("game", override_directory="js/pages/game") | safe }}
     {{ import_js("board", override_directory="js/components/board") | safe }}
     {{ import_js("cell", override_directory="js/components/cell") | safe }}
+    {{ import_js("board", override_directory="js/models") | safe }}
 {% endblock %}

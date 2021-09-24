@@ -1,13 +1,25 @@
 
 
-<table class="table">
+<table class="table sudoku-board">
     <tbody>
-        <tr ng-repeat="row in $ctrl.board track by $index">
-            <td ng-repeat="value in row track by $index">
-                <cell value="value"></cell>
+        <tr ng-repeat="row in $ctrl.board.fields.contents track by $index">
+            <td ng-repeat="cell in row track by $index"
+                ng-class="{
+                    'unsafe': !cell.is_valid(),
+                    'right-border': cell.fields.x == 2 || cell.fields.x == 5,
+                    'left-border': cell.fields.x == 3 || cell.fields.x == 6,
+                    'bottom-border': cell.fields.y == 2 || cell.fields.y == 5,
+                    'top-border': cell.fields.y == 3 || cell.fields.y == 6,
+                }">
+                    <cell cell="cell"></cell>
             </td>
         </tr>
-
     </tbody>
 </table>
+
+<button ng-click="$ctrl.solve()" class="btn btn-primary">Solve</button>
+
+<button ng-click="$ctrl.reset()" class="btn btn-primary">Reset</button>
+
+<button ng-click="$ctrl.generate_new()" class="btn btn-primary">New Board</button>
 

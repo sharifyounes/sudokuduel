@@ -4,7 +4,7 @@ let app = angular.module("App", [
 
 const TEMPLATES = {
     sudoku: {
-        home: "<board></board>",
+        home: "<game></game>",
     },
 };
 
