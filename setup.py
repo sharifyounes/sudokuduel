@@ -7,6 +7,6 @@ setup(
     maintainer_email="sharif.m.younes@gmail.com",
     packages=["app"],
     install_requires=[
-        "Flask==1.1.2",
+        "Flask==2.3.2",
     ],
 )
